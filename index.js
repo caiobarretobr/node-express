@@ -13,3 +13,4 @@ userRoute(app)
 app.get('/', (req, res) => res.send('Hello from express'))
 
 app.listen(port, () => console.log("Api rodando na porta 3000"))
+// updates

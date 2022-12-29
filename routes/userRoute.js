@@ -1,4 +1,4 @@
-	const fs = require('fs')
+const fs = require('fs')
 const { join } = require('path')
 
 const filePath = join(__dirname, 'users.json')
@@ -27,34 +27,40 @@ const userRoute = (app) => {
         .post((req, res) => {
             const users = getUsers()
 	
-            users.push(req.body)
-            saveUser(users)
+            const { email, name } = req.body
 
-            res.status(201).send('ok')
+            if (email.slice(-10) === "@gmail.com" || email.slice(-12) === "@outlook.com" || email.slice(-12) === "@hotmail.com") {
+                users.push(req.body)
+                saveUser(users)
+
+                res.status(201).send('Succesfully sent')
+            } else {
+                res.status(400).send('Write an avaible email')
+            }
         })
         .put((req, res) => {
             const users = getUsers()
 
-	    saveUser(users.map(user => {
-		if (user.id === req.params.id) {
-		    return {
-			...user,
-			...req.body
-		    }
+	        saveUser(users.map(user => {
+		        if (user.id === req.params.id) {
+		            return {
+			            ...user,
+			            ...req.body
+    		        }
+		        }	 
 
-		    return user
-		}	 
-	    }))
+                return user
+	        }))
 
-	    res.status(200).send("ok")
+	        res.status(200).send("ok")
         })
-	.delete((req, res) => {
-	    const users = getUsers()
-	
-	    saveUser(users.filter(user => user.id !== req.params.id))
+	    .delete((req, res) => {
+    	    const users = getUsers()
+            
+	        saveUser(users.filter(user => user.id !== req.params.id))
 		
-	    res.status(200).send("ok")
-	})
+    	    res.status(200).send("ok")
+	    })
 }
 
 module.exports = userRoute

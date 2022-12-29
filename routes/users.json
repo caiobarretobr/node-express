@@ -1,10 +1,17 @@
 [
 	{
-		"name": "joão-henrique",
-		"id": "1"
+		"name": "Manoel Gomes",
+		"id": "1",
+		"email": "mgomes1@gmail.com"
 	},
 	{
-		"name": "josé",
-		"id": "2"
+		"name": "José da Gaita",
+		"id": "2",
+		"email": "josedg@outlook.com"
+	},
+	{
+		"name": "Ayrton senegal",
+		"id": "3",
+		"email": "asen@hotmail.com"
 	}
 ]

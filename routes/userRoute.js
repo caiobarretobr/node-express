@@ -35,7 +35,7 @@ const userRoute = (app) => {
 
                 res.status(201).send('Succesfully sent')
             } else {
-                res.status(400).send('Write an avaible email')
+                res.status(400).send('Write an valid email')
             }
         })
         .put((req, res) => {

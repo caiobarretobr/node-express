@@ -8,4 +8,4 @@
 ### PUT:
 -For edit the already posted users
 ### DELETE:
--Remove a user and all of his datas
+-Remove a user and all of its datas
